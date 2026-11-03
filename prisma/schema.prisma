@@ -1,0 +1,18 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// ==========================================
+// ۱. کاربران و سطوح دسترسی
+// ==========================================
+enum Role {
+  CUSTOMER
+  ADMIN
+  OPERATOR
+}
+
