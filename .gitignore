@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# فایل‌های محیطی و کلیدها (هرگز نباید به گیت بروند)
+.env
+.env*.local
+
+# دیتابیس لوکال و فایل‌های موقت
+*.db
+*.db-journal
+
+# پوشه node_modules و بیلد نکست
+node_modules/
+.next/
