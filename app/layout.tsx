@@ -1,15 +1,26 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+
+const peyda = localFont({
+  src: [
+    { path: "../public/fonts/Peyda-Regular.ttf", weight: "400" },
+    { path: "../public/fonts/Peyda-Medium.ttf", weight: "500" },
+    { path: "../public/fonts/Peyda-SemiBold.ttf", weight: "600" },
+    { path: "../public/fonts/Peyda-Bold.ttf", weight: "700" },
+  ],
+  variable: "--font-peyda", // نام متغیر
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+// ۲. فونت دوم (مثلاً یک فونت دیگر در پوشه fonts)
+const estedad = localFont({
+  src: "../public/fonts/Estedad[KSHD,wght].woff2",
+  variable: "--font-estedad",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -21,9 +32,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={cn("h-full", "antialiased", estedad.variable, peyda.className, peyda.variable,)}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col ">{children}</body>
     </html>
   );
 }
